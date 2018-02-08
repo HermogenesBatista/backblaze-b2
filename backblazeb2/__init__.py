@@ -365,10 +365,11 @@ class BackBlazeB2(object):
                               bucket_name=None):
         file_names = self.list_file_names(bucket_id=bucket_id,
                                           bucket_name=bucket_name)
+        founded_files = []
         for i in file_names['files']:
             if file_name in i['fileName']:
-                return self.get_file_info(i['fileId'])
-        return None
+                founded_files.append(self.get_file_info(i['fileId']))
+        return founded_files if founded_files else None
 
     def get_file_info(self, file_id):
         return self._api_request('%s/b2api/v1/b2_get_file_info' % self.api_url,
