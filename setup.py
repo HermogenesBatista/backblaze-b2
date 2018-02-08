@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
 print 'pota que pariules'
+print 'nois que voa bruxao'
+
 setup(
     name='backblaze',
     version='0.1',
